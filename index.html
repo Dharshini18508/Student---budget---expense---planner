@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Budget & Expense Planner</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="hero">
+        <div class="hero-content">
+
+            <div class="logo">
+                💰
+            </div>
+
+            <div>
+                <h1>Student Budget Planner</h1>
+                <p>Plan your monthly budget and control your expenses</p>
+            </div>
+
+        </div>
+    </header>
+
+
+    <main class="container">
+
+        <!-- INCOME -->
+        <section class="card income-card">
+
+            <div class="section-title">
+                <span class="icon">💰</span>
+
+                <div>
+                    <h2>Monthly Income / Allowance</h2>
+                    <p>Enter the money you receive every month.</p>
+                </div>
+            </div>
+
+            <label for="income">
+                Monthly Income (₹)
+            </label>
+
+            <input
+                type="number"
+                id="income"
+                placeholder="Enter your monthly income"
+                min="0"
+            >
+
+        </section>
+
+
+        <!-- EXPENSES -->
+        <section class="card">
+
+            <div class="section-title">
+                <span class="icon">📊</span>
+
+                <div>
+                    <h2>Expected Monthly Expenses</h2>
+                    <p>Enter your estimated monthly spending.</p>
+                </div>
+            </div>
+
+
+            <div class="expense-grid">
+
+                <!-- FOOD -->
+                <div class="expense-item">
+                    <label for="food">🍔 Food</label>
+
+                    <div class="input-wrapper">
+                        <span>₹</span>
+                        <input
+                            type="number"
+                            id="food"
+                            value="0"
+                            min="0"
+                        >
+                    </div>
+                </div>
+
+
+                <!-- TRAVEL -->
+                <div class="expense-item">
+                    <label for="travel">🚌 Travel</label>
+
+                    <div class="input-wrapper">
+                        <span>₹</span>
+                        <input
+                            type="number"
+                            id="travel"
+                            value="0"
+                            min="0"
+                        >
+                    </div>
+                </div>
+
+
+                <!-- HOSTEL -->
+                <div class="expense-item">
+                    <label for="hostel">🏠 Hostel / Rent</label>
+
+                    <div class="input-wrapper">
+                        <span>₹</span>
+                        <input
+                            type="number"
+                            id="hostel"
+                            value="0"
+                            min="0"
+                        >
+                    </div>
+                </div>
+
+
+                <!-- EDUCATION -->
+                <div class="expense-item">
+                    <label for="education">📚 Education</label>
+
+                    <div class="input-wrapper">
+                        <span>₹</span>
+                        <input
+                            type="number"
+                            id="education"
+                            value="0"
+                            min="0"
+                        >
+                    </div>
+                </div>
+
+
+                <!-- ENTERTAINMENT -->
+                <div class="expense-item">
+                    <label for="entertainment">🎮 Entertainment</label>
+
+                    <div class="input-wrapper">
+                        <span>₹</span>
+                        <input
+                            type="number"
+                            id="entertainment"
+                            value="0"
+                            min="0"
+                        >
+                    </div>
+                </div>
+
+
+                <!-- SHOPPING -->
+                <div class="expense-item">
+                    <label for="shopping">🛍️ Shopping</label>
+
+                    <div class="input-wrapper">
+                        <span>₹</span>
+                        <input
+                            type="number"
+                            id="shopping"
+                            value="0"
+                            min="0"
+                        >
+                    </div>
+                </div>
+
+
+                <!-- HEALTH -->
+                <div class="expense-item">
+                    <label for="health">💊 Health</label>
+
+                    <div class="input-wrapper">
+                        <span>₹</span>
+                        <input
+                            type="number"
+                            id="health"
+                            value="0"
+                            min="0"
+                        >
+                    </div>
+                </div>
+
+
+                <!-- OTHER -->
+                <div class="expense-item">
+                    <label for="other">📦 Other</label>
+
+                    <div class="input-wrapper">
+                        <span>₹</span>
+                        <input
+                            type="number"
+                            id="other"
+                            value="0"
+                            min="0"
+                        >
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="button-group">
+
+                <button
+                    class="primary-btn"
+                    id="calculateBtn"
+                >
+                    Calculate Budget
+                </button>
+
+                <button
+                    class="secondary-btn"
+                    id="resetBtn"
+                    type="button"
+                >
+                    Reset
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- SUMMARY -->
+        <section class="summary-grid">
+
+            <div class="summary-card income-summary">
+
+                <div class="summary-icon">
+                    💰
+                </div>
+
+                <div>
+                    <p>Monthly Income</p>
+                    <h3 id="incomeResult">₹0</h3>
+                </div>
+
+            </div>
+
+
+            <div class="summary-card expense-summary">
+
+                <div class="summary-icon">
+                    🧾
+                </div>
+
+                <div>
+                    <p>Total Expenses</p>
+                    <h3 id="expenseResult">₹0</h3>
+                </div>
+
+            </div>
+
+
+            <div class="summary-card balance-summary">
+
+                <div class="summary-icon">
+                    💵
+                </div>
+
+                <div>
+                    <p>Remaining Balance</p>
+                    <h3 id="balanceResult">₹0</h3>
+                </div>
+
+            </div>
+
+
+            <div class="summary-card status-summary">
+
+                <div class="summary-icon">
+                    🎯
+                </div>
+
+                <div>
+                    <p>Financial Status</p>
+                    <h3 id="statusResult">Not Calculated</h3>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PROGRESS -->
+        <section class="card">
+
+            <div class="section-title">
+                <span class="icon">📈</span>
+
+                <div>
+                    <h2>Budget Usage</h2>
+                    <p>See how much of your income is planned for expenses.</p>
+                </div>
+            </div>
+
+
+            <div class="progress-info">
+
+                <span>Expense Percentage</span>
+
+                <strong id="percentageResult">
+                    0%
+                </strong>
+
+            </div>
+
+
+            <div class="progress-bar">
+
+                <div
+                    id="progressFill"
+                    class="progress-fill"
+                ></div>
+
+            </div>
+
+
+            <p
+                id="budgetMessage"
+                class="budget-message"
+            >
+                Enter your income and expenses to calculate your budget.
+            </p>
+
+        </section>
+
+
+        <!-- CATEGORY BREAKDOWN -->
+        <section class="card">
+
+            <div class="section-title">
+                <span class="icon">📋</span>
+
+                <div>
+                    <h2>Expense Breakdown</h2>
+                    <p>See where your monthly money is going.</p>
+                </div>
+            </div>
+
+
+            <div
+                id="categoryBreakdown"
+                class="breakdown-list"
+            >
+
+                <p class="empty-message">
+                    Calculate your budget to see the breakdown.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- SAVING TIP -->
+        <section class="tip-card">
+
+            <div class="tip-icon">
+                💡
+            </div>
+
+            <div>
+                <h2>Smart Money Tip</h2>
+
+                <p id="tipText">
+                    Try to save at least 10% of your monthly income
+                    whenever possible.
+                </p>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            © 2026 Student Budget & Expense Planner
+        </p>
+
+        <span>
+            Made for smarter student spending 💙
+        </span>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
