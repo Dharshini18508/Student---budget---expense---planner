@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Budget & Expense Planner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <div>
+            <h1>Student Budget & Expense Planner</h1>
+            <p>Manage your money. Track your expenses. Save smarter.</p>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- Summary Cards -->
+        <section class="summary-grid">
+
+            <div class="card">
+                <h3>Total Budget</h3>
+                <p class="amount" id="totalBudget">₹0</p>
+            </div>
+
+            <div class="card">
+                <h3>Total Expenses</h3>
+                <p class="amount expense" id="totalExpenses">₹0</p>
+            </div>
+
+            <div class="card">
+                <h3>Remaining Balance</h3>
+                <p class="amount balance" id="remainingBalance">₹0</p>
+            </div>
+
+            <div class="card">
+                <h3>Total Transactions</h3>
+                <p class="amount" id="totalTransactions">0</p>
+            </div>
+
+        </section>
+
+        <!-- Budget Section -->
+        <section class="panel">
+            <h2>Set Your Budget</h2>
+
+            <form id="budgetForm" class="form">
+                <div class="form-group">
+                    <label for="budgetAmount">Budget Amount</label>
+                    <input
+                        type="number"
+                        id="budgetAmount"
+                        placeholder="Enter budget amount"
+                        min="0"
+                        step="0.01"
+                        required
+                    >
+                </div>
+
+                <button type="submit">Set Budget</button>
+            </form>
+
+            <p id="budgetMessage" class="message"></p>
+        </section>
+
+        <!-- Expense Section -->
+        <section class="panel">
+            <h2>Add Expense</h2>
+
+            <form id="expenseForm" class="form">
+
+                <div class="form-group">
+                    <label for="expenseTitle">Expense Name</label>
+                    <input
+                        type="text"
+                        id="expenseTitle"
+                        placeholder="Example: Food"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="expenseAmount">Amount</label>
+                    <input
+                        type="number"
+                        id="expenseAmount"
+                        placeholder="Enter amount"
+                        min="0"
+                        step="0.01"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="expenseCategory">Category</label>
+                    <select id="expenseCategory" required>
+                        <option value="">Select Category</option>
+                        <option value="Food">Food</option>
+                        <option value="Travel">Travel</option>
+                        <option value="Education">Education</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option value="Hostel">Hostel</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="expenseDate">Date</label>
+                    <input type="date" id="expenseDate" required>
+                </div>
+
+                <button type="submit">Add Expense</button>
+
+            </form>
+
+            <p id="expenseMessage" class="message"></p>
+        </section>
+
+        <!-- Progress -->
+        <section class="panel">
+            <div class="progress-header">
+                <h2>Budget Usage</h2>
+                <span id="budgetPercentage">0%</span>
+            </div>
+
+            <div class="progress-bar">
+                <div id="progressFill"></div>
+            </div>
+
+            <p id="budgetStatus">No budget set.</p>
+        </section>
+
+        <!-- Expense List -->
+        <section class="panel">
+            <div class="section-heading">
+                <h2>Expense History</h2>
+
+                <input
+                    type="text"
+                    id="searchExpense"
+                    placeholder="Search expenses..."
+                >
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Expense</th>
+                            <th>Category</th>
+                            <th>Date</th>
+                            <th>Amount</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="expenseTableBody">
+                        <tr>
+                            <td colspan="5" class="empty">
+                                No expenses added yet.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Category Summary -->
+        <section class="panel">
+            <h2>Category Summary</h2>
+
+            <div id="categorySummary" class="category-grid">
+                <p class="empty">No expense data available.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Student Budget & Expense Planner</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+              </html>
